@@ -1,0 +1,35 @@
+.table {
+  border: 1px solid #000000;
+  width: 690px;
+  border-spacing: 0;
+}
+
+.thead {
+  width: inherit;
+  background-color: #2a2a2a;
+}
+.thead tr {
+  padding: 10px;
+}
+.table th {
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+}
+.table td {
+  padding: 10px 0 10px 0;
+  width: 230px;
+  font-weight: 700;
+  font-size: 15px;
+  color: #000000;
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  border: 1px solid #000000;
+}
+
+.table tr {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: solid 1px #000000;
+}

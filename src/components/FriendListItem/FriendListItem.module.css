@@ -1,0 +1,32 @@
+.friendsitem {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 0px;
+  padding: 0;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 5px;
+  
+}
+
+.friendsstatus {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.true {
+  color: green;
+}
+.false {
+  color: red;
+}
+
+.avatar {
+  width: 100px;
+}
+.friendsname {
+  font-weight: 700;
+  font-size: 30px;
+  color: #524a4d;
+}
