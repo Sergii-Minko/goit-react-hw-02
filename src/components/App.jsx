@@ -2,20 +2,23 @@ import "./App.css";
 import { useState, useEffect } from "react";
 
 import Feedback from "./Feedback/Feedback";
-import { Options } from "./Options/Options";
+import Options from "./Options/Options";
 import Description from "./Description/Description";
+import Notification from "./Notification/Notification";
 
 export default function App() {
-  const [state, setState] = useState({ good: 0, neutral: 0, bad: 0 });
-
-  useEffect(() => {
+  const [state, setState] = useState(() => {
     const savedState = localStorage.getItem("feedbackState");
     if (savedState) {
-      setState(JSON.parse(savedState));
+      return JSON.parse(savedState);
     } else {
-      setState({ good: 0, neutral: 0, bad: 0 });
+      return { good: 0, neutral: 0, bad: 0 };
     }
-  }, []);
+  });
+  useEffect(() => {
+    localStorage.setItem("feedbackState", JSON.stringify(state));
+    console.log(state);
+  }, [state]);
 
   const updateFeedback = (e) => {
     const { name } = e.target;
@@ -24,9 +27,7 @@ export default function App() {
       localStorage.removeItem("feedbackState");
       return;
     }
-    const newState = { ...state, [name]: state[name] + 1 };
-    setState(newState);
-    return localStorage.setItem("feedbackState", JSON.stringify(newState));
+    setState({ ...state, [name]: state[name] + 1 });
   };
 
   const totalFeedback = ({ good, neutral, bad }) => {
@@ -51,14 +52,17 @@ export default function App() {
         updateFeedback={updateFeedback}
         total={totalFeedback(state)}
       />
-
-      <Feedback
-        good={state.good}
-        neutral={state.neutral}
-        bad={state.bad}
-        total={totalFeedback(state)}
-        positivePercentage={positiveFeedback()}
-      />
+      {totalFeedback(state) > 0 ? (
+        <Feedback
+          good={state.good}
+          neutral={state.neutral}
+          bad={state.bad}
+          total={totalFeedback(state)}
+          positivePercentage={positiveFeedback()}
+        />
+      ) : (
+        <Notification />
+      )}
     </>
   );
 }

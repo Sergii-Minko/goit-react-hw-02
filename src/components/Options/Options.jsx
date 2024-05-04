@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 // import css from "./Options.module";
 
-export const Options = ({ options, updateFeedback, total }) => {
+const Options = ({ options, updateFeedback, total }) => {
   return (
     <div>
       {options.map((option) => (
@@ -26,5 +26,7 @@ export const Options = ({ options, updateFeedback, total }) => {
 
 Options.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  leaveFeedback: PropTypes.func.isRequired,
+  updateFeedback: PropTypes.func.isRequired,
 };
+
+export default Options;
