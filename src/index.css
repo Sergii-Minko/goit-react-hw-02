@@ -33,3 +33,16 @@ h2 {
   display: block;
   margin: 0;
 }
+button {
+  border: none;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: darkblue;
+}
