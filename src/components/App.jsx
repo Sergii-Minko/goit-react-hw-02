@@ -24,7 +24,6 @@ export default function App() {
     const { name } = e.target;
     if (name === "Reset") {
       setState({ good: 0, neutral: 0, bad: 0 });
-      localStorage.removeItem("feedbackState");
       return;
     }
     setState({ ...state, [name]: state[name] + 1 });

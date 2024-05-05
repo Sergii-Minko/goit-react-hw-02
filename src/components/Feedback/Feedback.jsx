@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 // import css from "./Feedback.module.css";
 
-export const Feedback = ({ good, neutral, bad, total, positivePercentage }) => {
+const Feedback = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <ul>
       <li>
